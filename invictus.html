@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invictus</title>
+    
+    
+
+    <style>
+        :root{
+    --color-white: #fff;
+    --color-dark1: #272727;
+    --color-dark2: #2d2d2d;
+    --color-dark3: #414141;
+    --color-dark4: #1c1c1c;
+    --color-dark5: #343434;
+    --color-purple: #b040ff;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color-dark1);
+    color: var(--color-white);
+    
+    background-size: cover;
+}
+.logo{
+    width: 45px;
+    border-radius: 50%;
+}
+.header,
+.navigation_header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.header{
+    background-color: var(--color-dark2);
+    box-shadow: 1px 1px 4px var(--color-dark4);
+    height: 3.5em;
+    justify-content: space-between;
+    padding: 0 3%;
+}
+.navigation_header{
+    gap: 3em;
+    z-index: 2;
+}
+.navigation_header a{
+    text-decoration: none;
+    color: var(--color-purple);
+    transition: 1s;
+    font-weight: bold;
+}
+
+.content{
+    text-align: center;
+    padding-top: 19px;
+    height: 100vh;
+    transition: 1s;
+}.btn_icon_header{
+    display: none;
+    border: none;
+    background-color: transparent;
+    color: var(--color-white);
+    cursor: pointer;
+}
+.rota{
+    cursor: pointer;
+    background-color: var(--color-white);
+    align-items: center;
+    width: 15%;
+    height: 5%;
+    border-radius: 10px;
+}
+
+.horario-atendimento{
+    background-color: #ffffff7a;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    
+    
+}
+
+a:hover{
+    border-bottom: 1px solid var(--color-purple);
+}
+
+
+h2{
+    text-align: center;
+}
+
+.horario-atendimento h2{
+    margin-top: 0;
+}
+
+.horario-atendimento ul{
+    list-style: none;
+    padding: 0;
+}
+
+.horario-atendimento li{
+    margin-bottom: 10px;
+}
+
+.horario-atendimento .dia{
+    font-weight: bold;
+}
+
+.horario-atendimento .horario{
+    margin-left: 10px;
+    color: #555;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px){
+    .btn_icon_header{
+        display: block;
+    }
+
+    .navigation_header{
+        position: fixed;
+        flex-direction: column;
+        top: 0;
+        background-color: var(--color-dark5);
+        height: 100%;
+        width: 35vw;
+        padding: 1em;
+        animation-duration: 1s;
+        margin-left: -100vw;
+    }
+} 
+@keyframes showSidebar {
+    from{margin-left: -100vw;}
+    top{margin-left: -3vw;}
+}
+
+.insta{
+    position: center;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    color: white;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+
+}
+
+.whats{
+    position: center;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+
+}
+
+.jobs{
+    position: center;
+    padding: 0px 20px;
+    
+    border: none;
+    border-radius: 50%;
+    height: 90px;
+}
+
+.carousel{
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+.slide{
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+}
+
+hr{
+    color: #ccc;
+    background-color: #ccc;
+    height: 1px;
+    border: none;
+}
+
+::-webkit-scrollbar-horizontal {
+    display: none;
+    }
+
+    body {
+        overflow-x: hidden;
+}
+
+
+
+
+
+
+    </style>
+</head>
+
+
+
+
+
+<body background="https://i.pinimg.com/736x/2e/88/e5/2e88e50393172ebf938d5c99f2885094.jpg">
+    
+    <div class="header" id="header">
+        <button onclick="toggleSidebar()" class="btn_icon_header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+        </button>
+        <div class="logo_header">
+            <img class="logo" src="https://pps.whatsapp.net/v/t61.24694-24/328696036_3388094514852858_3453750269458428292_n.jpg?ccb=11-4&oh=01_AdRvgRn4Df541TsGWNYOxsdsHYQT0dIiLrnvJnrZsBBBHQ&oe=646D0411" alt="Logo Invictus">
+        </div>
+        <div class="navigation_header" id="navigation_header">
+            <button onclick="toggleSidebar()" class="btn_icon_header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+            </button>
+            <a href="#serv">Serviços</a>
+            <a href="#proff">Profissionais</a>
+            <a href="#prod">Produtos</a>
+            <a href="#reserv">Reservar</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </div>
+    <div tabindex="0" onclick="closeSidebar()" class="content" id="content">
+        <h1>invictus barber shop</h1>
+            <br> <br>
+        <p>Localização</p>
+        <br>
+        <a href="https://goo.gl/maps/MQ2SJKzWPSy1BxtX6?coh=178571&entry=tt">  <button class="rota">      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+            </svg>Rota</button> </a> <br>
+            <br>
+        <div class="container">
+            <div class="horario-atendimento">
+                <h2>Horário de atendimento</h2>
+            <ul>
+                <li><span class="dia">Segunda-feira</span> <span class="horario">09:00 - 20:00</span></li>
+                <li><span class="dia">Terça-feira</span> <span class="horario">09:00 - 20:00</span></li>
+                <li><span class="dia">Quarta-feira</span> <span class="horario">09:00 - 20:00</span></li>
+                <li><span class="dia">Quinta-feira</span> <span class="horario">09:00 - 20:00</span></li>
+                <li><span class="dia">Sexta-feira</span> <span class="horario">09:00 - 20:00</span></li>
+                <li><span class="dia">Sábado</span> <span class="horario">09:00 - 20:00</span></li>
+                <li><span class="dia">Domingo</span> <span class="horario">09:00 - 14:00</span></li>
+            </ul>
+            </div>
+        </div>
+                
+        <br> <br>
+            
+
+            
+        <h2 id="contato">Contato</h2>
+        <br> <br>
+        <a href="https://www.instagram.com/invictusbarbershop.bh/">
+        <button class="insta"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+            </svg></button>
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=5531973483216">
+        <button class="whats"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+            </svg></button>
+        </a>
+            <br> <br>
+
+            <h2 id="sev">Serviços</h2>
+        <div class="carousel">
+            <div class="slide">
+            <br> <br>
+            <img class="jobs" src="https://ibbarbearia.com.br/wp-content/uploads/2023/04/img-corte-cabelo-2.jpg">
+            <br> 
+            <p>Pezinho</p> <br>
+            <p>R$ 15,00</p> <br>
+            </div> 
+            
+            <div class="slide"> 
+                <br> <br>
+            <img class="jobs" src="https://ibbarbearia.com.br/wp-content/uploads/2023/04/img-corte-cabelo-2.jpg">
+            <p>Barba Máquina</p> <br>
+            <p>R$ 20,00</p>
+            </div>
+
+            <div class="slide"> 
+                <br> <br>
+            <img class="jobs" src="https://ibbarbearia.com.br/wp-content/uploads/2023/04/img-corte-cabelo-2.jpg">
+            <p>Barboterapia</p> <br>
+            <p>R$ 30,00</p>
+            </div>
+
+            <div class="slide"> 
+                <br> <br>
+            <img class="jobs" src="https://ibbarbearia.com.br/wp-content/uploads/2023/04/img-corte-cabelo-2.jpg">
+            <p>COMBO: Pezinho + Barboterapia</p> <br>
+            <p>R$ 45,00</p>
+            </div>
+
+            <div class="slide"> 
+                <br> <br>
+            <img class="jobs" src="https://ibbarbearia.com.br/wp-content/uploads/2023/04/img-corte-cabelo-2.jpg">
+            <p>COMBO: Corte + Barboterapia</p> <br>
+            <p>R$ 50,00</p>
+            </div>
+
+            <div class="slide"> 
+                <br> <br>
+            <img class="jobs" src="https://ibbarbearia.com.br/wp-content/uploads/2023/04/img-corte-cabelo-2.jpg">
+            <p>COMBO: Corte + Sobrancelha</p> <br>
+            <p>R$ 45,00</p>
+            </div>
+
+            <div class="slide"> 
+                <br> <br>
+            <img class="jobs" src="https://ibbarbearia.com.br/wp-content/uploads/2023/04/img-corte-cabelo-2.jpg">
+            <p>Corte</p> <br>
+            <p>R$ 30,00</p>
+            </div>
+
+            <div class="slide"> 
+                <br> <br>
+            <img class="jobs" src="https://ibbarbearia.com.br/wp-content/uploads/2023/04/img-corte-cabelo-2.jpg">
+            <p>Hidratação Intensiva</p> <br>
+            <p>R$ 20,00</p>
+            </div>
+
+            <div class="slide"> 
+                <br> <br>
+            <img class="jobs" src="https://ibbarbearia.com.br/wp-content/uploads/2023/04/img-corte-cabelo-2.jpg">
+            <p>Luzes</p> <br>
+            <p>R$ 30,00</p>
+            </div>
+
+            <div class="slide"> 
+                <br> <br>
+            <img class="jobs" src="https://ibbarbearia.com.br/wp-content/uploads/2023/04/img-corte-cabelo-2.jpg">
+            <p>Luzes Platinado</p> <br>
+            <p>R$ 45,00</p>
+            </div>
+
+            <div class="slide"> 
+                <br> <br>
+            <img class="jobs" src="https://ibbarbearia.com.br/wp-content/uploads/2023/04/img-corte-cabelo-2.jpg">
+            <p>Relaxamento</p> <br>
+            <p>R$ 35,00</p>
+            </div>
+
+            <div class="slide"> 
+                <br> <br>
+            <img class="jobs" src="https://ibbarbearia.com.br/wp-content/uploads/2023/04/img-corte-cabelo-2.jpg">
+            <p>Selagem</p> <br>
+            <p>R$ 70,00</p>
+            </div>
+
+            <div class="slide"> 
+                <br> <br>
+            <img class="jobs" src="https://ibbarbearia.com.br/wp-content/uploads/2023/04/img-corte-cabelo-2.jpg">
+            <p>Sobrancelha</p> <br>
+            <p>R$ 15,00</p>
+            </div>
+
+            <div class="slide"> 
+                <br> <br>
+            <img class="jobs" src="https://ibbarbearia.com.br/wp-content/uploads/2023/04/img-corte-cabelo-2.jpg">
+            <p>Tintura</p> <br>
+            <p>R$ 30,00</p>
+            </div>
+        </div>
+
+        <hr>
+            <br> <br>
+        <h2 id="proff">Profissionais</h2>
+
+        <div class="carousel">
+            <div class="slide"> <br> <br>
+                <img class="jobs" src="https://s3-sa-east-1.amazonaws.com/img-appbarber-appbeleza/invictusbarbers-03fv/644b48f0d31b0.png">
+                <br>
+                <p>Carlos Júnio</p> <br>
+            </div>
+            <div class="slide"> <br> <br>
+                <img class="jobs" src="https://s3-sa-east-1.amazonaws.com/img-appbarber-appbeleza/invictusbarbers-03fv/644b490aa4039.png">
+                <br>
+                <p>Lucas Machado</p>
+            </div>
+            <div class="slide"> <br> <br>
+                <img class="jobs" src="https://s3-sa-east-1.amazonaws.com/img-appbarber-appbeleza/invictusbarbers-03fv/644b492cae54d.png">
+                <br>
+                <p>Thiago Batista</p>
+            </div>
+        </div>
+
+        <hr>
+            <br> <br>
+        <h2 id="prod">Produtos</h2>
+
+        <div class="carousel">
+            <div class="slide"> <br> <br>
+            <img class="jobs" src="https://salvadorshoppingonline.com.br/wp-content/uploads/2020/02/agua_mineral_sem_gás_garrafa_300_ml_beach_stop.jpg">
+            <br>
+            <p>Água mineral</p> <br>
+            <p>R$ 3,00</p>
+            </div>
+            <div class="slide"> <br> <br>
+            <img class="jobs" src="https://42102.cdn.simplo7.net/static/42102/sku/produtos-para-barba-balm-para-barba-multifuncional-barba-men-100g--p-1583285126561.jpg">
+            <br>
+            <p>Balm Barba</p> <br>
+            <p>R$ 35,00</p>
+            </div>
+            <div class="slide"> <br> <br>
+            <img class=jobs src="https://sachefmio.blob.core.windows.net/fotos/cerveja-long-neck-27609.jpg">
+            <br>
+            <p>Cerveja Long Neck</p> <br>
+            <p>R$ 8,00</p>
+            </div>
+            <div class="slide"> <br> <br>
+            <img class="jobs" src="https://s3-sa-east-1.amazonaws.com/img-appbarber-appbeleza/invictusbarbers-03fv/644c320beb397.png">
+            <br>
+            <p>Óleo Barba</p> <br>
+            <p>R$ 35,00</p>
+            </div>
+            <div class="slide"> <br> <br>
+            <img class="jobs" src="https://s3-sa-east-1.amazonaws.com/img-appbarber-appbeleza/invictusbarbers-03fv/644c311929fef.png">
+            <br>
+            <p>Pomada Black</p> <br>
+            <p>R$ 35,00</p>
+            </div>
+            <div class="slide"> <br> <br> 
+            <img class="jobs" src="https://s3-sa-east-1.amazonaws.com/img-appbarber-appbeleza/invictusbarbers-03fv/644c314ce5a09.png">
+            <br>
+            <p>Pomada Matte</p> <br>
+            <p>R$ 35,00</p>
+            </div>
+            <div class="slide"> <br> <br>
+            <img class="jobs" src="https://zavod.com.br/wp-content/uploads/2021/06/Refrigerentes.jpg">
+            <br>
+            <p>Refrigerante Lata</p> <br>
+            <p>R$ 5,00</p>
+            </div>
+            <div class="slide"> <br> <br> 
+            <img class="jobs" src="https://s3-sa-east-1.amazonaws.com/img-appbarber-appbeleza/invictusbarbers-03fv/644c31a09ad57.png">
+            <br>
+            <p>Shampoo Barba</p> <br>
+            <p>R$ 35,00</p>
+            </div>
+        </div>
+
+        <hr> <br> <br>
+
+        <h2 id="reserv">Reservar</h2>
+
+        <br>
+
+        <h2>O lugar onde homens se tornam lendas: <br> Em nossa barbearia, estamos aqui para ajudá-lo a se destacar entre a multidão. <br>Deixe-nos criar uma aparência lendária que você vai adorar.</h2> <br> <br>
+
+        <h2>Nos chame no nosso whatsapp (31) 9 7348-3216 <br> ou clique no ícone de contatos acima</h2>
+                
+
+        
+            
+
+        
+    </div>
+
+
+
+
+
+
+
+</body>
+<script>
+    var header = document.getElementById('header');
+    var navigationHeader = document.getElementById('navigation_header');
+    var content = document.getElementById('content');
+    var showSidebar = false;
+
+function toggleSidebar()
+{
+    showSidebar = !showSidebar;
+    if (showSidebar)
+    {
+        navigationHeader.style.marginLeft = '-3vw';
+        navigationHeader.style.animationName = 'showSidebar';
+        content.style.filter = 'blur(2px)';
+    }
+    else 
+    {
+        navigationHeader.style.marginLeft = '-100vw';
+        navigationHeader.style.animationName = '';
+        content.style.filter = '';
+    }
+}
+
+function closeSidebar()
+{
+    if(showSidebar)
+    {
+        toggleSidebar();
+    }
+}
+
+window.addEventListener('resize', function(event) {
+    if(window.innerWidth > 768 && showSidebar)
+    {
+        toggleSidebar();
+    }
+});
+
+
+
+</script>
+</html>
+    
